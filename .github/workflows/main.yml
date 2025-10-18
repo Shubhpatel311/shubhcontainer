@@ -31,4 +31,15 @@ jobs:
           sudo /etc/init.d/mysql start
           echo "MySQL 8 Server started."
 
+  Testing:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+     
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run Tests
+        run: mvn test
      
